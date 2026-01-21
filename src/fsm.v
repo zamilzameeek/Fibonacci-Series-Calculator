@@ -35,18 +35,19 @@ module fsm (START, ZERO_FLAG, CLK, RST, opcode, operand1, operand2, DONE);
     // Next State Logic Block
     always @(state or START or ZERO_FLAG or RST) begin
         case (state)
-            S0: nextstate = (START && !RST) ? S1 : S0;
-            S1: nextstate = (!RST) ? S2 : S0;
-            S2: nextstate = (!RST) ? S3 : S0;
-            S3: nextstate = (!RST) ? S4 : S0;
-            S4: nextstate = (!RST) ? (ZERO_FLAG ? S1 : S5) : S0;
-            S5: nextstate = (!RST) ? S6 : S0;
-            S6: nextstate = (!RST) ? S7 : S0;
-            S7: nextstate = (!RST) ? S8 : S0;
-            S8: nextstate = (!RST) ? S9 : S0;
-            S9: nextstate = (!RST) ? (ZERO_FLAG ? S10 : S5) : S0;
-            S10: nextstate = (!RST) ? S10 : S0;
+            S0:  nextstate = START ? S1 : S0;
+            S1:  nextstate = S2;
+            S2:  nextstate = S3;
+            S3:  nextstate = S4;
+            S4:  nextstate = ZERO_FLAG ? S1 : S5;
+            S5:  nextstate = S6;
+            S6:  nextstate = S7;
+            S7:  nextstate = S8;
+            S8:  nextstate = S9;
+            S9:  nextstate = ZERO_FLAG ? S10 : S5;
+            S10: nextstate = S10; 
             default: nextstate = S0;
         endcase
     end
+
 endmodule
