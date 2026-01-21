@@ -13,7 +13,6 @@ module FSM_TOP_LEVEL (DONE, DATA, START, CLK, RST, COUNT);
     fibo_fsm F1(START, CLK, ZERO_FLAG, RST, DONE, alu_opcode, rd_addr1, rd_addr2, wrt_addr, wrt_en, clk, load_data);
     fibo_datapath F2(Data_in, ZERO_FLAG, COUNT, wrt_addr, wrt_en, clk, load_data, rd_addr1, rd_addr2, alu_opcode);
     memory F3(COUNT, Outcounter, Data_in, DATA, CLK);
-
-
 endmodule
+
 
