@@ -1,7 +1,7 @@
 module decoder2to4 (Out, In);
     parameter SIZE = 4;
-    output reg [3:0] Out;
-    input [1:0] In;
+    output reg [SIZE-1:0] Out;
+    input [SIZE-3:0] In;
 
     always @(In) begin
         case (In)
@@ -11,4 +11,5 @@ module decoder2to4 (Out, In);
             2'b11: Out = 4'b1000;
         endcase
     end
+
 endmodule
