@@ -1,10 +1,10 @@
 module fsm_deco (op_code, Opr1, Opr2, ALU, Rd_addr1, Rd_addr2, wrt_addr, wrt_en, load_data);
     parameter SIZE = 4;
-    output reg [2:0] ALU;
-    output reg [1:0] Rd_addr1, Rd_addr2, wrt_addr;
+    output reg [SIZE-2:0] ALU;
+    output reg [SIZE-3:0] Rd_addr1, Rd_addr2, wrt_addr;
     output reg wrt_en, load_data;
-    input [2:0] op_code;
-    input [1:0] Opr1, Opr2;
+    input [SIZE-2:0] op_code;
+    input [SIZE-3:0] Opr1, Opr2;
 
     always @(op_code or Opr1 or Opr2) begin
         ALU = op_code;
@@ -26,4 +26,5 @@ module fsm_deco (op_code, Opr1, Opr2, ALU, Rd_addr1, Rd_addr2, wrt_addr, wrt_en,
             default: wrt_en = 0;
         endcase
     end
+
 endmodule
