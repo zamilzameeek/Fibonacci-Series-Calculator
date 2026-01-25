@@ -69,6 +69,7 @@ I conducted extensive functional verification using **ModelSim**. The testbench 
 <img width="1196" height="561" alt="image" src="https://github.com/user-attachments/assets/be33fcd1-d646-4a0d-b855-3e79ae1ca5f0" />
 
 
+
 2. **FPGA Synthesis & Timing Report**: Official Quartus II TimeQuest Analyzer report showing the 219.68 MHz performance on a Cyclone III device.
 <img width="971" height="132" alt="image" src="https://github.com/user-attachments/assets/330ceba6-a85b-4d69-a272-c1b6d43bf128" />
 
