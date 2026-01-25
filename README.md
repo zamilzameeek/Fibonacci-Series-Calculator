@@ -4,9 +4,8 @@
 
 ## **Project Overview**
 
-I designed and verified a parametric **4-bit Fibonacci sequence calculator** using **Verilog HDL**. The system is built on a hierarchical, modular architecture that separates control logic from data processing, ensuring high timing efficiency and scalability. The engine autonomously generates the Fibonacci sequence () up to a user-defined  term.
+I designed and verified a parametric **4-bit Fibonacci sequence calculator** using **Verilog HDL**. The system is built on a hierarchical, modular architecture that separates control logic from data processing, ensuring high timing efficiency and scalability. The engine autonomously generates the Fibonacci sequence up to a user-defined nth term.
 
----
 
 ## **Architecture & Implementation**
 
@@ -16,15 +15,13 @@ The design follows a **Separated Controller/Datapath (FSM+D)** architecture, con
 
 The "brain" of the calculator is a **Moore Finite State Machine** featuring 11 distinct states (`S0` to `S10`).
 
-* 
-**State Transition Logic**: The FSM manages the algorithm's lifecycle, from initializing sequence constants to executing the iterative addition loop.
+* **State Transition Logic**: The FSM manages the algorithm's lifecycle, from initializing sequence constants to executing the iterative addition loop.
 
 
 * **Conditional Branching**: I implemented branching logic that monitors a hardware `zero_flag`. When the term counter reaches zero, the FSM autonomously transitions to the `DONE` state.
 
 
-* 
-**Reset Handling**: Includes a global asynchronous reset to force the machine into an idle state (`S0`) for safe system restarts.
+* **Reset Handling**: Includes a global asynchronous reset to force the machine into an idle state (`S0`) for safe system restarts.
 
 
 
@@ -32,16 +29,13 @@ The "brain" of the calculator is a **Moore Finite State Machine** featuring 11 d
 
 The datapath contains the execution hardware required to store and process the sequence:
 
-* 
-**ALU (Arithmetic Logic Unit)**: A custom processing block executing 3-bit opcodes, including `ADD` (`3'b110`), `LOAD` (`3'b100`), and `DECREMENT` (`3'b011`) .
+* **ALU (Arithmetic Logic Unit)**: A custom processing block executing 3-bit opcodes, including `ADD` (`3'b110`), `LOAD` (`3'b100`), and `DECREMENT` (`3'b011`) .
 
 
-* 
-**Register File**: Utilizes **D-Flip-Flops** as parametric registers to store current and previous sequence terms.
+* **Register File**: Utilizes **D-Flip-Flops** as parametric registers to store current and previous sequence terms.
 
 
-* 
-**Routing Logic**: Features a hierarchical network of **4-to-1 and 2-to-1 multiplexers** and a **2-to-4 line decoder** for precise register addressing and data flow management.
+* **Routing Logic**: Features a hierarchical network of **4-to-1 and 2-to-1 multiplexers** and a **2-to-4 line decoder** for precise register addressing and data flow management.
 
 
 
@@ -49,26 +43,20 @@ The datapath contains the execution hardware required to store and process the s
 
 A rising-edge synchronous memory block holds the input count and stores intermediate data results, acting as the interface between the core logic and external inputs.
 
----
 
 ## **Technical Specifications & Performance**
 
 The design was synthesized and analyzed using **Altera Quartus II** for the **Cyclone III FPGA** family.
 
-* 
-**Maximum Operating Frequency ()**: Achieved a restricted  of **219.68 MHz**.
+* **Maximum Operating Frequency ()**: Achieved a restricted  of **219.68 MHz**.
 
 
-* 
-**Parametric Design**: The entire codebase is fully parameterized, allowing the bit-width (currently 4-bit) to be scaled for larger Fibonacci calculations with minimal changes.
+* **Parametric Design**: The entire codebase is fully parameterized, allowing the bit-width (currently 4-bit) to be scaled for larger Fibonacci calculations with minimal changes.
 
 
-* 
-**Logic Style**: Implemented using a mix of Behavioral (FSM) and Structural (Top-level integration) modeling.
+* **Logic Style**: Implemented using a mix of Behavioral (FSM) and Structural (Top-level integration) modeling.
 
 
-
----
 
 ## **Verification & Simulation**
 
@@ -85,8 +73,6 @@ I conducted extensive functional verification using **ModelSim**. The testbench 
 **FSM State Trace**: Traced all 11 states to ensure deterministic transitions and proper opcode generation.
 
 
-
----
 
 ## **How to Run**
 
