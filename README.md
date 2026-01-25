@@ -51,13 +51,13 @@ A rising-edge synchronous memory block holds the input count and stores intermed
 
 The design was synthesized and analyzed using **Altera Quartus II** for the **Cyclone III FPGA** family.
 
-* **Maximum Operating Frequency ()**: Achieved a restricted  of **219.68 MHz**.
+* **Maximum Operating Frequency**: Achieved a restricted  of **219.68 MHz**.
 
 
 * **Parametric Design**: The entire codebase is fully parameterized, allowing the bit-width (currently 4-bit) to be scaled for larger Fibonacci calculations with minimal changes.
 
 
-* **Logic Style**: Implemented using a mix of Behavioral (FSM) and Structural (Top-level integration) modeling.
+* **Logic Style**: Implemented using a mix of Behavioral FSM and Top-level integration modeling.
 
 
 
@@ -66,18 +66,12 @@ The design was synthesized and analyzed using **Altera Quartus II** for the **Cy
 I conducted extensive functional verification using **ModelSim**. The testbench suite covers every sub-module and the full system integration:
 
 1. **Top-Level Verification**: Confirmed the system correctly calculates the sequence. For a count of 5, the system successfully outputs the sequence terms and raises the `DONE` flag.
+<img width="1196" height="561" alt="image" src="https://github.com/user-attachments/assets/be33fcd1-d646-4a0d-b855-3e79ae1ca5f0" />
 
 
-2. **ALU Stress Test**: Verified all opcodes and the `zero_flag` accuracy.
+2. **FPGA Synthesis & Timing Report**: Official Quartus II TimeQuest Analyzer report showing the 219.68 MHz performance on a Cyclone III device.
+<img width="971" height="132" alt="image" src="https://github.com/user-attachments/assets/330ceba6-a85b-4d69-a272-c1b6d43bf128" />
 
 
-3. **FSM State Trace**: Traced all 11 states to ensure deterministic transitions and proper opcode generation.
 
 
-
-## **How to Run**
-
-1. **Synthesis**: Open the project in **Quartus II** and compile `src/FSM_TOP_LEVEL.v`.
-2. **Simulation**: Load the testbenches in **ModelSim** to view the timing waveforms.
-* Top-level: `sim/FSM_TOP_LEVEL_tb.v`
-* Datapath: `sim/fibo_datapath_tb.v`
