@@ -65,12 +65,10 @@ I conducted extensive functional verification using **ModelSim**. The testbench 
 1. **Top-Level Verification**: Confirmed the system correctly calculates the sequence. For a count of 5, the system successfully outputs the sequence terms and raises the `DONE` flag.
 
 
-2. 
-**ALU Stress Test**: Verified all opcodes and the `zero_flag` accuracy.
+2. **ALU Stress Test**: Verified all opcodes and the `zero_flag` accuracy.
 
 
-3. 
-**FSM State Trace**: Traced all 11 states to ensure deterministic transitions and proper opcode generation.
+3. **FSM State Trace**: Traced all 11 states to ensure deterministic transitions and proper opcode generation.
 
 
 
