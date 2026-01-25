@@ -23,6 +23,9 @@ The "brain" of the calculator is a **Moore Finite State Machine** featuring 11 d
 
 * **Reset Handling**: Includes a global asynchronous reset to force the machine into an idle state (`S0`) for safe system restarts.
 
+  <img width="975" height="632" alt="image" src="https://github.com/user-attachments/assets/e16db928-67ee-4e58-bb24-c108232d7e81" />
+
+
 
 
 ### **2. Custom 4-Bit Datapath**
